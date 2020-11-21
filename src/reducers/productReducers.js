@@ -23,12 +23,12 @@ export const productListReducer = (state = { products: [] }, action) => {
 export const productDetailsReducer = (state = { product: { reviews: [] } }, action) => {
   switch(action.type) {
     case PRODUCT_DETAILS_REQUEST:
-      return { loading: true, ...state }
+      return { loading: true, products: [] }
     case PRODUCT_DETAILS_SUCCESS:
-      return { loading: false, product: action.payload }
+      return { loading: false, products: action.payload }
     case PRODUCT_DETAILS_FAIL:
       return { loading: false, error: action.payload }
     default: 
       return state
   }
-} // When we create a new reducer, we must add it to our store. Inside 'combineReducers'
+} 
