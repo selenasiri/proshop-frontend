@@ -45,7 +45,7 @@ export const logout = () => (dispatch) => {
 export const register = (name, email, password) => async (dispatch) => {
   try {
     dispatch ({
-      type: USER_REGISTER_REQUEST
+      type: USER_REGISTER_REQUEST,
     })
 
     const config = {
@@ -62,12 +62,12 @@ export const register = (name, email, password) => async (dispatch) => {
 
     dispatch({
       type: USER_REGISTER_SUCCESS,
-      payload: data
+      payload: data,
     })
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
-      payload: data
+      payload: data,
     }) // Once they register we'll dispatch their login (1 step rather than 2)
 
     localStorage.setItem('userInfo', JSON.stringify(data))

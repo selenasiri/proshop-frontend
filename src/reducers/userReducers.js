@@ -16,7 +16,7 @@ export const userLoginReducer = (state = { product: { reviews: [] } }, action) =
   }
 }
 
-export const userRegisterReducer = (state = { product: { reviews: [] } }, action) => {
+export const userRegisterReducer = (state = {}, action) => {
   switch(action.type) {
     case USER_REGISTER_REQUEST:
       return { loading: true }
