@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Navbar, Nav, Container,NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import { logout } from '../actions/userActions'
 
 const Header = () => {
@@ -17,12 +17,15 @@ const Header = () => {
   return (
     <header>
       <Navbar bg="dark" variant='dark' expand="lg">
-        <Navbar.Brand href="#home">Proshop</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <NavDropdown title={userInfo.name} id='username'>
+        <Container>
+          <Navbar.Brand href="#home">Proshop</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+
+              {userInfo ? (
+                <NavDropdown title={userInfo.name} id='username'>
                   <LinkContainer to='/profile'>
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
@@ -30,8 +33,17 @@ const Header = () => {
                     Logout
                   </NavDropdown.Item>
                 </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
+              ) : (
+                <LinkContainer to='/login'>
+                  <Nav.Link>
+                    <i className='fas fa-user'></i> Sign In
+                  </Nav.Link>
+                </LinkContainer>
+              )}
+
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
     </header>
   )
