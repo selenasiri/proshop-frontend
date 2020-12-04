@@ -70,7 +70,7 @@ export const register = (name, email, password) => async (dispatch) => {
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
-    }) // Once they register we'll dispatch their login (1 step rather than 2)
+    }) 
 
     localStorage.setItem('userInfo', JSON.stringify(data))
   } catch (error) {

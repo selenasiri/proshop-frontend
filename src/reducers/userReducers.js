@@ -10,7 +10,8 @@ import {
   USER_DETAILS_FAIL,
   USER_UPDATE_PROFILE_SUCCESS, 
   USER_UPDATE_PROFILE_REQUEST, 
-  USER_UPDATE_PROFILE_FAIL } from "../constants/userConstants"
+  USER_UPDATE_PROFILE_FAIL 
+} from "../constants/userConstants"
 
 export const userLoginReducer = (state = { product: { reviews: [] } }, action) => {
   switch(action.type) {
